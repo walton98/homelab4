@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: sealed-secrets
 resources:
 - https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.27.1/controller-norbac.yaml
+- ./namespace.yaml
