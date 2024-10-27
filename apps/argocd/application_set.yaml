@@ -3,6 +3,8 @@ kind: ApplicationSet
 metadata:
   name: applicationset
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
       repoURL: ssh://git@github.com/walton98/homelab3.git
@@ -11,16 +13,16 @@ spec:
       - path: "apps/*"
   template:
     metadata:
-      name: "{{.path.basename}}"
+      name: '{{.path.basename}}'
     spec:
       project: default
       source:
         repoURL: ssh://git@github.com/walton98/homelab3.git
         targetRevision: main
-        path: "{{.path.path}}"
+        path: '{{.path.path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: "{{namespace}}"
+        namespace: '{{.path.basename}}'
       syncPolicy:
         automated:
           prune: true
