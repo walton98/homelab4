@@ -37,4 +37,3 @@ spec:
         - name: tvshows
           persistentVolumeClaim:
             claimName: longhorn-jellyfin-tvshows-pvc
-            claimName: longhorn-jellyfin-movies-pvc
