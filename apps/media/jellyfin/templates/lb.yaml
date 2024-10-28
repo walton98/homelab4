@@ -2,7 +2,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: jellyfin-service
-  namespace: jellyfin
   annotations:
     metallb.universe.tf/address-pool: default-pool
 spec:
