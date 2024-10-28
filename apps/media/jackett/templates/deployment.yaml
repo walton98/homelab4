@@ -20,9 +20,14 @@ spec:
         ports:
         - containerPort: 9117
         volumeMounts:
+        - name: config
+          mountPath: /config
         - name: data
           mountPath: /data
       volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: longhorn-jackett-config-pvc
         - name: data
           persistentVolumeClaim:
             claimName: longhorn-jellyfin-pvc
