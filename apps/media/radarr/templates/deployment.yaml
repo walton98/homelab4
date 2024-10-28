@@ -30,4 +30,4 @@ spec:
             claimName: longhorn-radarr-downloads-pvc
         - name: movies
           persistentVolumeClaim:
-            claimName: longhorn-jellyfin-movies-pvc
+            claimName: longhorn-jellyfin-pvc

@@ -23,17 +23,12 @@ spec:
         # https://docs.linuxserver.io/images/docker-jellyfin/#volume-mappings-v
         - name: config
           mountPath: /config
-        - name: movies
-          mountPath: /data/movies
-        - name: tvshows
-          mountPath: /data/tvshows
+        - name: data
+          mountPath: /data
       volumes:
         - name: config
           persistentVolumeClaim:
             claimName: longhorn-jellyfin-config-pvc
-        - name: movies
+        - name: data
           persistentVolumeClaim:
-            claimName: longhorn-jellyfin-movies-pvc
-        - name: tvshows
-          persistentVolumeClaim:
-            claimName: longhorn-jellyfin-tvshows-pvc
+            claimName: longhorn-jellyfin-pvc
