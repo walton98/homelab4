@@ -22,12 +22,17 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config
-        - name: data
-          mountPath: /data
+        - name: movies
+          mountPath: /data/movies
+        - name: downloads
+          mountPath: /downloads
       volumes:
         - name: config
           persistentVolumeClaim:
             claimName: longhorn-jackett-config-pvc
-        - name: data
+        - name: movies
           persistentVolumeClaim:
-            claimName: longhorn-jellyfin-pvc
+            claimName: longhorn-jellyfin-movies-pvc
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: longhorn-downloads-pvc

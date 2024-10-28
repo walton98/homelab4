@@ -28,12 +28,12 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config
-        - name: data
-          mountPath: /data
+        - name: downloads
+          mountPath: /downloads
       volumes:
         - name: config
           persistentVolumeClaim:
             claimName: longhorn-qbittorrent-config-pvc
-        - name: data
+        - name: downloads
           persistentVolumeClaim:
-            claimName: longhorn-jellyfin-pvc
+            claimName: longhorn-downloads-pvc

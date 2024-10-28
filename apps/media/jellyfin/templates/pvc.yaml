@@ -14,7 +14,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: longhorn-jellyfin-pvc
+  name: longhorn-jellyfin-movies-pvc
 spec:
   accessModes:
     - ReadWriteMany

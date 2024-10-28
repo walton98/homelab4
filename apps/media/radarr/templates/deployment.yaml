@@ -20,9 +20,14 @@ spec:
         ports:
         - containerPort: 7878
         volumeMounts:
-        - name: data
-          mountPath: /data
+        - name: movies
+          mountPath: /data/movies
+        - name: downloads
+          mountPath: /downloads
       volumes:
-        - name: data
+        - name: movies
           persistentVolumeClaim:
-            claimName: longhorn-jellyfin-pvc
+            claimName: longhorn-jellyfin-movies-pvc
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: longhorn-downloads-pvc
