@@ -10,7 +10,7 @@ spec:
       repoURL: ssh://git@github.com/walton98/homelab3.git
       revision: HEAD
       directories:
-      - path: "apps/*"
+      - path: "apps/**"
   template:
     metadata:
       name: '{{.path.basename}}'
