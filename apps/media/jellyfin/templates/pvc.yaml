@@ -17,7 +17,7 @@ metadata:
   name: longhorn-jellyfin-movies-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: longhorn
   resources:
     requests:

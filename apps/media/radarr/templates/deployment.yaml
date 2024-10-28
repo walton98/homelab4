@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radarr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: radarr
+  template:
+    metadata:
+      labels:
+        app: radarr
+        name: radarr
+    spec:
+      containers:
+      - name: radarr
+        image: lscr.io/linuxserver/radarr:{{- .Values.image.label }}
+        ports:
+        - containerPort: 7878
+        volumeMounts:
+        - name: config
+          mountPath: /downloads
+        - name: movies
+          mountPath: /movies
+      volumes:
+        - name: downloads
+          persistentVolumeClaim:
+            claimName: longhorn-radarr-downloads-pvc
+        - name: movies
+          persistentVolumeClaim:
+            claimName: longhorn-jellyfin-movies-pvc
