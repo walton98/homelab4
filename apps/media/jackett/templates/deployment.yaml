@@ -2,23 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: radarr
+  name: jackett
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: radarr
+      app: jackett
   template:
     metadata:
       labels:
-        app: radarr
-        name: radarr
+        app: jackett
+        name: jackett
     spec:
       containers:
-      - name: radarr
-        image: lscr.io/linuxserver/radarr:{{- .Values.image.label }}
+      - name: jackett
+        image: lscr.io/linuxserver/jackett:{{- .Values.image.label }}
         ports:
-        - containerPort: 7878
+        - containerPort: 9117
         volumeMounts:
         - name: data
           mountPath: /data
