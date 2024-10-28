@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: 7878
         volumeMounts:
-        - name: config
+        - name: downloads
           mountPath: /downloads
         - name: movies
           mountPath: /movies
