@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qbittorrent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qbittorrent
+  template:
+    metadata:
+      labels:
+        app: qbittorrent
+        name: qbittorrent
+    spec:
+      containers:
+      - name: qbittorrent
+        image: lscr.io/linuxserver/qbittorrent:{{- .Values.image.label }}
+        ports:
+        - containerPort: 8080
+          name: web
+        - containerPort: 6881
+          name: torrent-tcp
+        - containerPort: 6881
+          name: torrent-udp
+          protocol: UDP
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        - name: data
+          mountPath: /data
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: longhorn-qbittorrent-config-pvc
+        - name: data
+          persistentVolumeClaim:
+            claimName: longhorn-jellyfin-pvc

@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Helm chart for qBittorrent.
+name: qbittorrent
+version: 1.0.0
