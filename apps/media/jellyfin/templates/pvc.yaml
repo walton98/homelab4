@@ -9,12 +9,24 @@ spec:
   storageClassName: longhorn
   resources:
     requests:
-      storage: 200Mi
+      storage: 10Gi
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: longhorn-jellyfin-cache-pvc
+  name: longhorn-jellyfin-movies-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: longhorn-jellyfin-tvshows-pvc
 spec:
   accessModes:
     - ReadWriteOnce
