@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: jellyfin-service
   namespace: jellyfin
+  annotations:
+    metallb.universe.tf/address-pool: default-pool
 spec:
   selector:
     app: jellyfin
@@ -12,4 +14,3 @@ spec:
       protocol: TCP
       port: 8096
       targetPort: 8096
-  loadBalancerIP: {{- .Values.ip }}
