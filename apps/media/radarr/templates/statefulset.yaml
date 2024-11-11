@@ -1,24 +1,24 @@
 ---
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: jackett
+  name: radarr
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jackett
+      app: radarr
   template:
     metadata:
       labels:
-        app: jackett
-        name: jackett
+        app: radarr
+        name: radarr
     spec:
       containers:
-      - name: jackett
-        image: lscr.io/linuxserver/jackett:{{- .Values.image.label }}
+      - name: radarr
+        image: lscr.io/linuxserver/radarr:{{- .Values.image.label }}
         ports:
-        - containerPort: 9117
+        - containerPort: 7878
         volumeMounts:
         - name: config
           mountPath: /config
@@ -29,7 +29,7 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: longhorn-jackett-config-pvc
+            claimName: longhorn-radarr-config-pvc
         - name: movies
           persistentVolumeClaim:
             claimName: longhorn-jellyfin-movies-pvc
