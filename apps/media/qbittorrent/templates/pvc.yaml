@@ -17,7 +17,7 @@ metadata:
   name: longhorn-downloads-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: longhorn
   resources:
     requests:
