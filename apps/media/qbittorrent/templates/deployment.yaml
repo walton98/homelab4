@@ -46,12 +46,12 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: surfshark-credentials
-                value: user
+                key: user
           - name: OPENVPN_PASS
             valueFrom:
               secretKeyRef:
                 name: surfshark-credentials
-                value: pass
+                key: pass
           - name: SERVER_COUNTRIES
             value: "United Kingdom"
           - name: DNS_KEEP_NAMESERVER
