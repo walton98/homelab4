@@ -47,7 +47,7 @@ spec:
               secretKeyRef:
                 name: surfshark-credentials
                 key: user
-          - name: OPENVPN_PASS
+          - name: OPENVPN_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: surfshark-credentials
