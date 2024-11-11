@@ -62,4 +62,4 @@ spec:
             claimName: longhorn-qbittorrent-config-pvc
         - name: downloads
           persistentVolumeClaim:
-            claimName: longhorn-downloads-pvc
+            claimName: longhorn-downloads-2-pvc

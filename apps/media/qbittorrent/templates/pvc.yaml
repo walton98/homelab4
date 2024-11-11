@@ -14,7 +14,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: longhorn-downloads-pvc
+  name: longhorn-downloads-2-pvc
 spec:
   accessModes:
     - ReadWriteMany

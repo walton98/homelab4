@@ -35,4 +35,4 @@ spec:
             claimName: longhorn-jellyfin-movies-pvc
         - name: downloads
           persistentVolumeClaim:
-            claimName: longhorn-downloads-pvc
+            claimName: longhorn-downloads-2-pvc
