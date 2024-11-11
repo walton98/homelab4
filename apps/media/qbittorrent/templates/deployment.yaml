@@ -54,7 +54,7 @@ spec:
                 value: pass
           - name: SERVER_COUNTRIES
             value: "United Kingdom"
-          - DNS_KEEP_NAMESERVER
+          - name: DNS_KEEP_NAMESERVER
             value: "on"  # This can cause DNS leakage :/
       volumes:
         - name: config
