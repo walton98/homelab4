@@ -4,6 +4,7 @@ metadata:
   name: jellyfin-service
   annotations:
     metallb.universe.tf/address-pool: default-pool
+    tailscale.com/expose: "true"
 spec:
   selector:
     app: jellyfin
