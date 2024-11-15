@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Helm chart for Linux Server images.
+name: linux-server-base
+version: 1.0.0

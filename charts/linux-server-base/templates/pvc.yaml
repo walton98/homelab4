@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: longhorn-radarr-config-pvc
+  name: longhorn-{{ .Values.name }}-config-pvc
 spec:
   accessModes:
     - ReadWriteOnce

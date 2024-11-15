@@ -1,2 +1,8 @@
-image:
-  label: 5.14.0
+linux-server-base:
+  name: radarr
+  image:
+    label: 5.14.0
+  port: 7878
+  extraVolumes:
+    movies: longhorn-jellyfin-movies-pvc
+    downloads: longhorn-downloads-2-pvc

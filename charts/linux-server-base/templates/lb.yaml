@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: radarr-service
+  name: {{ .Values.name }}-service
   annotations:
     metallb.universe.tf/address-pool: default-pool
 spec:
   selector:
-    app: radarr
+    app: {{ .Values.name }}
   type: LoadBalancer
   ports:
     - name: docker-port
       protocol: TCP
-      port: 7878
-      targetPort: 7878
+      port: {{ .Values.port }}
+      targetPort: {{ .Values.port }}
