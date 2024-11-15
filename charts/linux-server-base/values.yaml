@@ -2,6 +2,7 @@ name: radarr
 image:
   label: latest
 port: 7878
+tailscale: false
 extraVolumes:
   # movies: longhorn-jellyfin-movies-pvc
   # downloads: longhorn-downloads-2-pvc

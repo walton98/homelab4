@@ -4,6 +4,9 @@ metadata:
   name: {{ .Values.name }}-service
   annotations:
     metallb.universe.tf/address-pool: default-pool
+    {{- if .Values.tailscale }}
+    tailscale.com/expose: "true"
+    {{- end }}
 spec:
   selector:
     app: {{ .Values.name }}
