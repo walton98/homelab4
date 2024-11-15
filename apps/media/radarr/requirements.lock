@@ -1,6 +1,0 @@
-dependencies:
-- name: linux-server-base
-  repository: file://../../../charts/linux-server-base
-  version: 1.0.0
-digest: sha256:4b7ec08a21f33823b0b0b8ed5364862c59ad6debaa74a9352cf8dae535623c09
-generated: "2024-11-15T15:25:32.018504432Z"
