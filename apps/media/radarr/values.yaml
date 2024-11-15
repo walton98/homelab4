@@ -3,6 +3,7 @@ linux-server-base:
   image:
     label: 5.14.0
   port: 7878
+  tailscale: true
   extraVolumes:
     movies: longhorn-jellyfin-movies-pvc
     downloads: longhorn-downloads-2-pvc
