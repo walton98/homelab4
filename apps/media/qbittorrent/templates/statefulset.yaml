@@ -30,6 +30,13 @@ spec:
           mountPath: /config
         - name: downloads
           mountPath: /downloads
+        resources:
+          limits:
+            cpu: 1
+            memory: 300Mi
+          requests:
+            cpu: 0.5
+            memory: 300Mi
       - name: gluetun
         image: ghcr.io/qdm12/gluetun:latest
         securityContext:
