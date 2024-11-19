@@ -26,13 +26,14 @@ spec:
           mountPath: /data/movies
         - name: downloads
           mountPath: /downloads
-        {{ .Values.resources }}
+        resources:
+{{ .Values.resources | toYaml | indent 10 }}
       volumes:
         - name: config
           persistentVolumeClaim:
             claimName: longhorn-{{ .Values.name }}-config-pvc
-        {{- range $name, $vol := .Values.extraVolumes }}
+{{- range $name, $vol := .Values.extraVolumes }}
         - name: {{ $name }}
           persistentVolumeClaim:
             claimName: {{ $vol }}
-        {{- end }}
+{{- end }}
