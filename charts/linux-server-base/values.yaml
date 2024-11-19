@@ -3,6 +3,13 @@ image:
   label: latest
 port: 7878
 tailscale: false
+resources:
+  limits:
+    cpu: 1
+    memory: 300Mi
+  requests:
+    cpu: 0.5
+    memory: 300Mi
 extraVolumes:
   # movies: longhorn-jellyfin-movies-pvc
   # downloads: longhorn-downloads-2-pvc
