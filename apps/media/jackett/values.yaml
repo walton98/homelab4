@@ -1,2 +1,16 @@
-image:
-  label: 0.22.856
+linux-server-base:
+  name: jackett
+  image:
+    label: 0.22.856
+  port: 9117
+  tailscale: true
+  resources:
+    limits:
+      cpu: 1
+      memory: 300Mi
+    requests:
+      cpu: 0.5
+      memory: 300Mi
+  extraVolumes:
+    movies: longhorn-jellyfin-movies-pvc
+    downloads: longhorn-downloads-2-pvc
