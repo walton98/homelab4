@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: actual-budget
+spec:
+  serviceName: "actual-budget"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: actual-budget
+  template:
+    metadata:
+      labels:
+        app: actual-budget
+    spec:
+      containers:
+        - name: actual-budget
+          image: actualbudget/actual-server:latest
+          ports:
+            - containerPort: 5006
+          envFrom:
+            - configMapRef:
+                name: actual-budget-config
+          volumeMounts:
+            - name: actual-storage
+              mountPath: /data
+            - name: certs
+              mountPath: /certs
+      volumes:
+        - name: certs
+          secret:
+            secretName: actual-budget-certs
+  volumeClaimTemplates:
+    - metadata:
+        name: actual-storage
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 5Gi

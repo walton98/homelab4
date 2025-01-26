@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - statefulset.yaml
+  - lb.yaml
+  - sealed-certs.yaml
+
+configMapGenerator:
+  - name: actual-budget-config
+    literals:
+      - ACTUAL_SERVER_PORT=5006
+      - ACTUAL_DATA_DIR=/data
+      - ACTUAL_HTTPS_KEY=/certs/cert.key
+      - ACTUAL_HTTPS_CERT=/certs/cert.crt
+
+images:
+  - name: actualbudget/actual-server
+    newTag: latest
