@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: trilium
+spec:
+  serviceName: "trilium"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trilium
+  template:
+    metadata:
+      labels:
+        app: trilium
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: trilium
+          image: triliumnext/notes:v0.91.5
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: trilium-config
+          volumeMounts:
+            - name: trilium-data
+              mountPath: /data
+  volumeClaimTemplates:
+    - metadata:
+        name: trilium-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
