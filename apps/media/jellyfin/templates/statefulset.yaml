@@ -25,6 +25,8 @@ spec:
           mountPath: /config
         - name: movies
           mountPath: /data/movies
+        - name: tv
+          mountPath: /data/tv
       volumes:
         - name: config
           persistentVolumeClaim:
@@ -32,3 +34,6 @@ spec:
         - name: movies
           persistentVolumeClaim:
             claimName: longhorn-jellyfin-movies-pvc
+        - name: tv
+          persistentVolumeClaim:
+            claimName: longhorn-jellyfin-tv-pvc
