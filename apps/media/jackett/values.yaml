@@ -12,5 +12,9 @@ linux-server-base:
       cpu: 0.5
       memory: 300Mi
   extraVolumes:
-    movies: longhorn-jellyfin-movies-pvc
-    downloads: longhorn-downloads-2-pvc
+  - name: movies
+    claim: longhorn-jellyfin-movies-pvc
+    path: /data/movies
+  - name: downloads
+    claim: longhorn-downloads-2-pvc
+    path: /downloads

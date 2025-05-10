@@ -22,18 +22,18 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config
-        - name: movies
-          mountPath: /data/movies
-        - name: downloads
-          mountPath: /downloads
+{{- range $vol := .Values.extraVolumes }}
+        - name: {{ $vol.name }}
+          mountPath: {{ $vol.path }}
+{{- end }}
         resources:
 {{ .Values.resources | toYaml | indent 10 }}
       volumes:
         - name: config
           persistentVolumeClaim:
             claimName: longhorn-{{ .Values.name }}-config-pvc
-{{- range $name, $vol := .Values.extraVolumes }}
-        - name: {{ $name }}
+{{- range $vol := .Values.extraVolumes }}
+        - name: {{ $vol.name }}
           persistentVolumeClaim:
-            claimName: {{ $vol }}
+            claimName: {{ $vol.claim }}
 {{- end }}
