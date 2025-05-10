@@ -1,0 +1,20 @@
+linux-server-base:
+  name: sonarr
+  image:
+    label: 4.0.14
+  port: 8989
+  tailscale: true
+  resources:
+    limits:
+      cpu: 1
+      memory: 300Mi
+    requests:
+      cpu: 0.5
+      memory: 300Mi
+  extraVolumes:
+  - name: tv
+    claim: longhorn-jellyfin-tv-pvc
+    path: /data/tv
+  - name: downloads
+    claim: longhorn-downloads-2-pvc
+    path: /downloads

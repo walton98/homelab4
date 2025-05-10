@@ -1,0 +1,8 @@
+apiVersion: v1
+description: Helm chart for Sonarr.
+name: sonarr
+version: 1.0.0
+dependencies:
+- name: linux-server-base
+  version: 1.0.0
+  repository: file://../../../charts/linux-server-base
