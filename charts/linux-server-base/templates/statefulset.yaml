@@ -55,6 +55,8 @@ spec:
             value: "United Kingdom"
           - name: DNS_KEEP_NAMESERVER
             value: "on"  # This can cause DNS leakage :/
+          - name: FIREWALL_OUTBOUND_SUBNETS
+            value: "10.42.0.0/16,10.43.0.0/16"
 {{- end }}
       volumes:
         - name: config
