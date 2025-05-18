@@ -28,6 +28,34 @@ spec:
 {{- end }}
         resources:
 {{ .Values.resources | toYaml | indent 10 }}
+{{- if .Values.vpn }}
+      - name: gluetun
+        image: ghcr.io/qdm12/gluetun:latest
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN"]
+        env:
+          - name: TZ
+            value: "Europe/London"
+          - name: VPN_SERVICE_PROVIDER
+            value: "surfshark"
+          - name: VPN_TYPE
+            value: "openvpn"
+          - name: OPENVPN_USER
+            valueFrom:
+              secretKeyRef:
+                name: surfshark-credentials
+                key: user
+          - name: OPENVPN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: surfshark-credentials
+                key: pass
+          - name: SERVER_COUNTRIES
+            value: "United Kingdom"
+          - name: DNS_KEEP_NAMESERVER
+            value: "on"  # This can cause DNS leakage :/
+{{- end }}
       volumes:
         - name: config
           persistentVolumeClaim:
