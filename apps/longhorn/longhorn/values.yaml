@@ -1,6 +1,6 @@
 longhorn:
   defaultSettings:
-    defaultDataPath: "/storage01"
+    defaultDataPath: "/mnt/longhorn0"
   service:
     ui:
       type: LoadBalancer
