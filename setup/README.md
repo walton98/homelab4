@@ -40,7 +40,7 @@ Append `cgroup_memory=1 cgroup_enable=memory` to `/boot/firmware/cmdline.txt`.
 
 ```
 # install k3s
-curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --disable servicelb --bind-address 192.168.1.200 --disable-cloud-controller --disable local-storage
+curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644 --disable servicelb --bind-address 192.168.1.150 --disable-cloud-controller --disable local-storage
 
 # get auth token
 sudo cat /var/lib/rancher/k3s/server/node-token

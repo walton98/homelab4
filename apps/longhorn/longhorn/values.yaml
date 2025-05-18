@@ -4,6 +4,6 @@ longhorn:
   service:
     ui:
       type: LoadBalancer
-      loadBalancerIP: "192.168.1.222"
+      loadBalancerIP: "192.168.1.161"
   preUpgradeChecker:
     jobEnabled: false
