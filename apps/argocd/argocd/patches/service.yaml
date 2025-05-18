@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: argocd-server
   annotations:
+    metallb.universe.tf/address-pool: default-pool
     tailscale.com/expose: "true"
 spec:
   type: LoadBalancer
-  loadBalancerIP: "192.168.1.160"
