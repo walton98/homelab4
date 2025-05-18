@@ -1,5 +1,5 @@
 linux-server-base:
-  name: radarr
+  name: prowlarr
   image:
     label: 1.35.1
   port: 9696
