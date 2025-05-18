@@ -7,7 +7,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
-      repoURL: ssh://git@github.com/walton98/homelab4.git
+      repoURL: https://github.com/walton98/homelab4.git
       revision: HEAD
       directories:
       - path: "apps/*/*"
@@ -17,7 +17,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: ssh://git@github.com/walton98/homelab4.git
+        repoURL: https://github.com/walton98/homelab4.git
         targetRevision: main
         path: '{{.path.path}}'
       destination:
