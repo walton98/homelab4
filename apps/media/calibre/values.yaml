@@ -1,0 +1,17 @@
+linux-server-base:
+  name: calibre
+  image:
+    label: 8.4.0
+  port: 8080
+  tailscale: true
+  resources:
+    limits:
+      cpu: 1
+      memory: 600Mi
+    requests:
+      cpu: 0.5
+      memory: 600Mi
+  extraVolumes:
+  - name: books
+    claim: longhorn-books-pvc
+    path: /data/books
