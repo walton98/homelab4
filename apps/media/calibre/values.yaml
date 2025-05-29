@@ -15,7 +15,7 @@ linux-server-base:
   - name: server
     port: 81
     protocol: TCP
-    targetPort: 8181
+    targetPort: 8081
   extraVolumes:
   - name: books
     claim: longhorn-books-pvc
