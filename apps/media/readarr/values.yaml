@@ -10,7 +10,7 @@ linux-server-base:
       memory: 300Mi
     requests:
       cpu: 0.5
-      memory: 300Mi
+      memory: 600Mi
   vpn: true
   extraVolumes:
   - name: downloads
