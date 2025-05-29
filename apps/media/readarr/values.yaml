@@ -1,0 +1,21 @@
+linux-server-base:
+  name: readarr
+  image:
+    label: 0.4.16-develop
+  port: 8787
+  tailscale: true
+  resources:
+    limits:
+      cpu: 1
+      memory: 300Mi
+    requests:
+      cpu: 0.5
+      memory: 300Mi
+  vpn: true
+  extraVolumes:
+  - name: downloads
+    claim: longhorn-downloads-2-pvc
+    path: /downloads
+  - name: books
+    claim: longhorn-books-pvc
+    path: /data/books
