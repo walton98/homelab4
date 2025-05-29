@@ -16,3 +16,6 @@ spec:
       protocol: TCP
       port: 80
       targetPort: {{ .Values.port }}
+{{- if .Values.extraPorts }}
+{{ .Values.extraPorts | toYaml | indent 4 }}
+{{- end }}

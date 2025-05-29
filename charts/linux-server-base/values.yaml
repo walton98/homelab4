@@ -11,4 +11,5 @@ resources:
     cpu: 0.5
     memory: 300Mi
 vpn: false
-extraVolumes:
+extraVolumes: []
+extraPorts: []

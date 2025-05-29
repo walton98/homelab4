@@ -19,6 +19,9 @@ spec:
         image: lscr.io/linuxserver/{{ .Values.name }}:{{- .Values.image.label }}
         ports:
         - containerPort: {{ .Values.port }}
+{{- range $port := .Values.extraPorts }}
+        - containerPort: {{ $port.targetPort }}
+{{- end }}
         volumeMounts:
         - name: config
           mountPath: /config
