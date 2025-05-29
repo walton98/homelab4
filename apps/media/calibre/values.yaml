@@ -11,6 +11,11 @@ linux-server-base:
     requests:
       cpu: 0.5
       memory: 600Mi
+  extraPorts:
+  - name: server
+    port: 81
+    protocol: TCP
+    targetPort: 8181
   extraVolumes:
   - name: books
     claim: longhorn-books-pvc
