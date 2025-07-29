@@ -13,3 +13,4 @@ resources:
 vpn: false
 extraVolumes: []
 extraPorts: []
+configSize: 200Mi
