@@ -12,5 +12,5 @@ linux-server-base:
       cpu: 0.5
       memory: 300Mi
   vpn: true
-  configSize: 300Mi
+  configSize: 1Gi
   extraVolumes:

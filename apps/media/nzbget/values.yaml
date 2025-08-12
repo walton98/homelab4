@@ -16,4 +16,4 @@ linux-server-base:
   - name: downloads
     claim: longhorn-downloads-2-pvc
     path: /downloads
-  configSize: 300Mi
+  configSize: 1Gi
